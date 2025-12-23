@@ -41,37 +41,37 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center p-4">
-      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS1vcGFjaXR5PSIwLjAzIiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-30"></div>
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-slate-100 to-slate-50 flex items-center justify-center p-4">
+      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iYmxhY2siIHN0cm9rZS1vcGFjaXR5PSIwLjAzIiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-40"></div>
       
-      <Card className="w-full max-w-md shadow-2xl border-slate-700 bg-slate-800/80 backdrop-blur-sm animate-scale-in">
+      <Card className="w-full max-w-md shadow-xl border-slate-200 bg-white animate-scale-in">
         <CardHeader className="space-y-3 text-center">
-          <div className="mx-auto w-20 h-20 bg-gradient-to-br from-sky-400 to-purple-500 rounded-2xl flex items-center justify-center shadow-lg">
-            <Icon name="QrCode" size={40} className="text-white" />
+          <div className="mx-auto w-16 h-16 bg-slate-800 rounded-lg flex items-center justify-center shadow-sm">
+            <Icon name="Building2" size={32} className="text-white" />
           </div>
-          <CardTitle className="text-3xl font-bold bg-gradient-to-r from-sky-400 to-purple-400 bg-clip-text text-transparent">
-            Система Хранения
+          <CardTitle className="text-2xl font-semibold text-slate-900">
+            Система Хранения Документов
           </CardTitle>
-          <CardDescription className="text-slate-400 text-base">
-            Вход для кассира и администратора
+          <CardDescription className="text-slate-600">
+            Авторизация сотрудников
           </CardDescription>
         </CardHeader>
         
-        <CardContent className="space-y-6">
+        <CardContent className="space-y-5">
           <div className="space-y-2">
-            <Label htmlFor="name" className="text-slate-200">Имя</Label>
+            <Label htmlFor="name" className="text-slate-700 font-medium">Имя сотрудника</Label>
             <Input
               id="name"
               placeholder="Введите имя"
               value={name}
               onChange={(e) => setName(e.target.value)}
               onKeyDown={(e) => e.key === 'Enter' && handleLogin()}
-              className="bg-slate-700/50 border-slate-600 text-white placeholder:text-slate-400 focus:border-sky-400"
+              className="bg-white border-slate-300 text-slate-900 placeholder:text-slate-400"
             />
           </div>
           
           <div className="space-y-2">
-            <Label htmlFor="password" className="text-slate-200">Пароль</Label>
+            <Label htmlFor="password" className="text-slate-700 font-medium">Пароль</Label>
             <Input
               id="password"
               type="password"
@@ -79,28 +79,16 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               onKeyDown={(e) => e.key === 'Enter' && handleLogin()}
-              className="bg-slate-700/50 border-slate-600 text-white placeholder:text-slate-400 focus:border-sky-400"
+              className="bg-white border-slate-300 text-slate-900 placeholder:text-slate-400"
             />
-          </div>
-
-          <div className="bg-slate-700/30 border border-slate-600 rounded-lg p-3 space-y-1 text-xs">
-            <p className="text-slate-300">
-              <span className="font-semibold text-sky-400">Кассир:</span> пароль 25
-            </p>
-            <p className="text-slate-300">
-              <span className="font-semibold text-purple-400">Администратор:</span> пароль 2025
-            </p>
-            <p className="text-slate-300">
-              <span className="font-semibold text-pink-400">Создатель:</span> пароль 202505
-            </p>
           </div>
           
           <Button 
             onClick={handleLogin}
-            className="w-full bg-gradient-to-r from-sky-500 to-purple-500 hover:from-sky-600 hover:to-purple-600 text-white font-semibold py-6 text-lg shadow-lg hover:shadow-xl transition-all"
+            className="w-full bg-slate-800 hover:bg-slate-900 text-white font-medium py-6 text-base shadow-sm transition-all"
           >
-            Войти
-            <Icon name="LogIn" size={20} className="ml-2" />
+            Войти в систему
+            <Icon name="LogIn" size={18} className="ml-2" />
           </Button>
         </CardContent>
       </Card>
